@@ -6,4 +6,5 @@ HAPPY PLAYING!!!
 Clone this repository and have python installed. Run the .py file and play the game in your command prompt or integrated terminal.
 
 The terminal would look like this:
+
 ![Alt text](./assets/image.png)
