@@ -1,15 +1,4 @@
-# Hangman game
-#
-
-# -----------------------------------
-# Helper code
-# You don't need to understand this helper code,
-# but you will have to know how to use the functions
-# (so be sure to read the docstrings!)
-
 import random
-
-WORDLIST_FILENAME = "words.txt"
 
 def loadWords():
     """
@@ -20,13 +9,12 @@ def loadWords():
     """
     print("Loading word list from file...")
     # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r')
-    # line: string
-    line = inFile.readline()
+    with open("Hangman/words.txt", "r") as words:
+        line = words.readlines()
     # wordlist: list of strings
-    wordlist = line.split()
-    print(len(wordlist), "words loaded.")
-    return wordlist
+    # wordlist = line.split()
+    print(len(line), "words loaded.")
+    return line
 
 def chooseWord(wordlist):
     """
@@ -35,9 +23,6 @@ def chooseWord(wordlist):
     Returns a word from wordlist at random
     """
     return random.choice(wordlist)
-
-# end of helper code
-# -----------------------------------
 
 # Load the list of words into the variable wordlist
 # so that it can be accessed from anywhere in the program
@@ -143,13 +128,3 @@ def hangman(secretWord):
 secretWord = chooseWord(wordlist).lower()
 hangman(secretWord)    
    
-    
-
-
-
-# When you've completed your hangman function, uncomment these two lines
-# and run this file to test! (hint: you might want to pick your own
-# secretWord while you're testing)
-
-secretWord = chooseWord(wordlist).lower()
-hangman(secretWord)
